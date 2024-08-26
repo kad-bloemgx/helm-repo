@@ -12,3 +12,17 @@ pgadmin4:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: traefik
+  serverDefinitions:
+    enabled: true
+    resourceType: ConfigMap
+    existingConfigmap: "database.values.yaml"
+
+  servers:
+    firstServer:
+      Name: "Minimally Defined Server"
+      Group: "Servers"
+      Port: 5432
+      Username: "postgres"
+      Host: "192,168.234.102"
+      SSLMode: "prefer"
+      MaintenanceDB: "postgres"
