@@ -14,12 +14,3 @@ pgadmin4:
       kubernetes.io/ingress.class: traefik
   serverDefinitions:
     enabled: true
-  servers:
-    firstServer:
-      Name: "database"
-      Group: "Servers"
-      Port: 5432
-      Username: "postgres"
-      Host: "192.168.234.103"
-      SSLMode: "prefer"
-      MaintenanceDB: "postgres"
