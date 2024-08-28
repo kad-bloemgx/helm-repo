@@ -3,8 +3,3 @@ pgadmin4:
     email: datahub@kadaster.nl
     password: admin
     contextPath: /pgadmin
-    variables:
-      - name: PGADMIN_CONFIG_ALLOW_SAVE_PASSWORD
-        value: "False"
-  persistentVolume:
-    enabled: false
