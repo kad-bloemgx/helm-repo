@@ -12,7 +12,3 @@ pgadmin4:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: traefik
-  serverDefinitions:
-    enabled: true
-    existingConfigmap: "servers.values.yaml"
-    resourceType: ConfigMap
