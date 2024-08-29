@@ -10,11 +10,12 @@ pgadmin4:
     serverDefinitions:
       enabled: true
       servers:
-        "1":
-          Name: Database
-          Group: Servers
-          Port: 5432
-          Username: postgres
-          Host: 192.168.234.103
-          SSLMode: require
-          MaintenanceDB: postgres
+        "1": {
+          "Name": "Database"
+          "Group": "Servers"
+          "Port": "5432"
+          "Username": "postgres"
+          "Host": "192.168.234.103"
+          "SSLMode": "require"
+          "MaintenanceDB": "postgres"
+          }
