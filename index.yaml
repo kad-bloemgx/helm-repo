@@ -12,6 +12,6 @@ entries:
     digest: 155e80c4d07033e4736c3566e3c5e95fe8fe16421c1a1ff4f60518400d5acecc
     name: pgadmin
     urls:
-    - https://kad-bloemgx.github.io/helm-repo/pgadmin/pgadmin-0.1.0.tgz
+    - https://kad-bloemgx.github.io/helm-repo/pgadmin/pgadmin-1.0.0.tgz
     version: 1.0.0
 generated: "2024-08-26T15:34:06.479724078+02:00"
