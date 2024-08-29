@@ -3,7 +3,12 @@ pgadmin4:
     email: datahub@kadaster.nl
     password: admin
     contextPath: /pgadmin
+
+    VolumePermissions:
+      enabled: true
+
     serverDefinitions:
+      enabled: true
       servers:
         "1":
           Name: Database
