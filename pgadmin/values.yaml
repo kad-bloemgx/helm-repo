@@ -3,3 +3,13 @@ pgadmin4:
     email: datahub@kadaster.nl
     password: admin
     contextPath: /pgadmin
+    serverDefinitions:
+      servers:
+        "1":
+          Name: Database
+          Group: Servers
+          Port: 5432
+          Username: postgres
+          Host: 192.168.234.103
+          SSLMode: require
+          MaintenanceDB: postgres
