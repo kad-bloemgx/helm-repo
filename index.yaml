@@ -13,5 +13,5 @@ entries:
     name: pgadmin
     urls:
     - https://kad-bloemgx.github.io/helm-repo/pgadmin/pgadmin-0.1.0.tgz
-    version: 0.1.0
+    version: 1.0.0
 generated: "2024-08-26T15:34:06.479724078+02:00"
