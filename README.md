@@ -12,6 +12,7 @@
 
 - using action github pages
   https://kad-bloemgx.github.io/helm-repo/
+  https://kad-bloemgx.github.io/helm-repo/index.yaml
 
 ## pgadmin
 
