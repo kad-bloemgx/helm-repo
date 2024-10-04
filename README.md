@@ -12,8 +12,8 @@
 
 - using github actions [pages-build-deployment ]
 
-  - https://kad-bloemgx.github.io/helm-repo/
-  - https://kad-bloemgx.github.io/helm-repo/index.yaml
+  - [Repo](https://kad-bloemgx.github.io/helm-repo/)
+  - [Repo index.yaml](https://kad-bloemgx.github.io/helm-repo/index.yaml)
 
 ## pgadmin
 
