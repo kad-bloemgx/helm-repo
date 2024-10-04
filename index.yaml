@@ -3,15 +3,15 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-08-26T15:34:06.483791943+02:00"
+    created: "2024-10-04T10:15:58.047479549+02:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
       version: 1.28.0
     description: A Helm chart for Kubernetes
-    digest: 155e80c4d07033e4736c3566e3c5e95fe8fe16421c1a1ff4f60518400d5acecc
+    digest: ee7e7cb6372be00c33998841f5818004fd93c5177a6c40a3a187c334f17daa67
     name: pgadmin
     urls:
-    - https://kad-bloemgx.github.io/helm-repo/pgadmin/pgadmin-1.0.0.tgz
+    - pgadmin/pgadmin-1.0.0.tgz
     version: 1.0.0
-generated: "2024-08-26T15:34:06.479724078+02:00"
+generated: "2024-10-04T10:15:58.046224103+02:00"
