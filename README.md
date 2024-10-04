@@ -10,9 +10,10 @@
 
 ## github pages
 
-- using action github pages
-  https://kad-bloemgx.github.io/helm-repo/
-  https://kad-bloemgx.github.io/helm-repo/index.yaml
+- using github actions [pages-build-deployment ]
+
+  - https://kad-bloemgx.github.io/helm-repo/
+  - https://kad-bloemgx.github.io/helm-repo/index.yaml
 
 ## pgadmin
 
