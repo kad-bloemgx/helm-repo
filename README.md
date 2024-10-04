@@ -20,3 +20,13 @@
 
 ## homeassistant
 
+
+| key            | Value                        |
+|----------------|------------------------------|
+| appName        | homeassistant                |
+| namespace      | homeassistant                |
+| repository     | homeassistant/home-assistant |
+| container.port | 8123                         |
+| service.type   | Nodeport                     |
+| service.port   | 30168                        |
+
