@@ -8,7 +8,13 @@
 3. Update index.yaml from terminal (IntelliJ)
     - helm repo index [DIR]
 
+## github pages
+
+- using action github pages
+  https://kad-bloemgx.github.io/helm-repo/
+
 ## pgadmin
 
 
 ## homeassistant
+
