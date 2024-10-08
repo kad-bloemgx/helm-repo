@@ -3,7 +3,7 @@ entries:
   homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-10-05T10:34:54.219164176+02:00"
+    created: "2024-10-08T14:27:08.372151812+02:00"
     description: A Helm chart for Kubernetes
     digest: 4d9c510d6b6b350f9a904b429d29f4c823a8c2ee7580c19dee659c1bf15168c7
     name: homeassistant
@@ -13,7 +13,7 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-10-05T10:34:54.220558105+02:00"
+    created: "2024-10-08T14:27:08.373418486+02:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
@@ -24,10 +24,24 @@ entries:
     urls:
     - pgadmin/pgadmin-1.0.0.tgz
     version: 1.0.0
+  traefik:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-10-08T14:27:08.38927369+02:00"
+    dependencies:
+    - name: traefik
+      repository: oci://ghcr.io/traefik/helm
+      version: 31.0.0
+    description: A Helm chart for Kubernetes Traefik
+    digest: 53f420c7112691e999d5bd789ec87ea7b774b4d2f46f7de09c32473390e7f4c5
+    name: traefik
+    urls:
+    - traefik/traefik-1.0.0.tgz
+    version: 1.0.0
   whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-10-05T10:34:54.220694727+02:00"
+    created: "2024-10-08T14:27:08.389418536+02:00"
     description: A Helm chart for Kubernetes
     digest: 4870e67d8c8183de013ca6333e534b47453fa23760f9c0303a2521f607e7b36b
     name: whoami
@@ -35,4 +49,4 @@ entries:
     urls:
     - whoami/whoami-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-05T10:34:54.218730788+02:00"
+generated: "2024-10-08T14:27:08.37182912+02:00"
