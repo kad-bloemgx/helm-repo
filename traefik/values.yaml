@@ -1,0 +1,64 @@
+traefik:
+  global:
+    sendanonymoususage: false
+  service:
+    annotations: {
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    }
+  rollingUpdate:
+    maxUnavailable: 0
+  logs:
+    access:
+      enabled: true
+  providers:
+    kubernetesIngress:
+      publishedService:
+        enabled: true
+  ports:
+    web:
+      port: 8000
+      expose:
+        default: true
+      exposedPort: 80
+      protocol: TCP
+      transport:
+        respondingTimeouts:
+          readTimeout: 0 # Let the Azure loadbalancer handle timeouts
+    websecure:
+      port: 8443
+      expose:
+        default: true
+      exposedPort: 443
+      protocol: TCP
+      transport:
+        respondingTimeouts:
+          readTimeout: 0 # Let the Azure loadbalancer handle timeouts
+    web-internal:
+      port: 8080
+      expose:
+        default: true
+      exposedPort: 8080
+      protocol: TCP
+      transport:
+        respondingTimeouts:
+          readTimeout: 0 # Let the Azure loadbalancer handle timeouts
+    metrics:
+      port: 8082
+      expose:
+        default: true
+      exposedPort: 8082
+      protocol: TCP
+  deployment:
+    podAnnotations:
+      co.elastic.logs/module: traefik
+      co.elastic.logs/fileset: access
+  ingressRoute:
+    dashboard:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: traefik
+  entryPoints:
+    web:
+    address: ":80"
+  websecure:
+    address: ":443"
