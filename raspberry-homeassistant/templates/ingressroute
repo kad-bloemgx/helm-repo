@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroutetls
+  namespace: {{ .Values.nameSpace }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`gerardbloemendaal.freemyip.com`) && PathPrefix(`/homeassistant`)
+      kind: Rule
+      services:
+        - name: {{ .Values.appName }}
+          port: {{ .Values.container.port }}
+  tls:
+    certResolver: myresolver

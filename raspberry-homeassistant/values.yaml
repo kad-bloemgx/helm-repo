@@ -1,0 +1,11 @@
+replicaCount: 1
+
+appName: homeassistant
+nameSpace: homeassistant-test
+
+image:
+  repository: homeassistant/home-assistant
+  tag: "2024.10"
+
+container:
+  port: 8123
