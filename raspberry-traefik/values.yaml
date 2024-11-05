@@ -1,7 +1,7 @@
 replicaCount: 1
 
 appName: traefik
-nameSpace: homeassistant-test
+nameSpace: traefik
 
 image:
   repository: traefik
