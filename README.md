@@ -3,10 +3,15 @@
 ## how to build 
 
 1. Create a new helm chart in the repo "helm-repo"
-2. Create helm package from terminal (IntelliJ)
+2. If update chache version number Chart.yaml
+3Create helm package from terminal (IntelliJ)
    - helm package [DIR]
-3. Update index.yaml from terminal (IntelliJ)
+   - mv package [DIR]
+4. Update index.yaml from terminal (IntelliJ)
     - helm repo index [DIR]
+5. Commit and Push
+6. helm repo update
+7. helm search repo
 
 ## github pages
 
@@ -27,6 +32,4 @@
 | namespace      | homeassistant                |
 | repository     | homeassistant/home-assistant |
 | container.port | 8123                         |
-| service.type   | Nodeport                     |
-| service.port   | 30168                        |
 

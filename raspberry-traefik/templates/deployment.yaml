@@ -1,25 +1,25 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: default
-  name: traefik
+  namespace: {{ .Values.nameSpace }}
+  name: {{ .Values.appName }}
   labels:
-    app: traefik
+    app: {{ .Values.appName }}
 
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: traefik
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: traefik
+        app: {{ .Values.appName }}
     spec:
       serviceAccountName: traefik-ingress-controller
       containers:
-        - name: traefik
-          image: traefik:v3.2
+        - name: {{ .Values.appName }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           args:
             - --api.insecure
             - --log.level=DEBUG

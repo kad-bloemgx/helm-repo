@@ -1,0 +1,8 @@
+replicaCount: 1
+
+appName: traefik
+nameSpace: homeassistant-test
+
+image:
+  repository: traefik
+  tag: "v3.2"
