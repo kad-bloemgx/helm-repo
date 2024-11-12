@@ -25,6 +25,6 @@ spec:
             - mountPath: "/var/www/"
               name: pv-storage-httpd
       volumes:
-        - name: pv-storage-ha
+        - name: pv-storage-httpd
           persistentVolumeClaim:
             claimName: local-path-pvc-httpd
