@@ -5,7 +5,7 @@ nameSpace: httpd
 
 image:
   repository: httpd
-  tag: "tatest"
+  tag: "latest"
 
 container:
   port: 8080
