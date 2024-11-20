@@ -156,7 +156,7 @@
             mountPath: {{ .mountPath }}
             readOnly: true
           {{- end }}
-          {{- if and (gt (len .Values.experimental.plugins) 0) (ne (include "traefik.hasPluginsVolume" .Values.deployment.additionalVolumes) "true") }}
+          {{- if gt (len .Values.experimental.plugins) 0 }}
           - name: plugins
             mountPath: "/plugins-storage"
           {{- end }}
@@ -490,11 +490,8 @@
           - "--providers.kubernetesingress.ingressClass={{ .Values.providers.kubernetesIngress.ingressClass }}"
            {{- end }}
            {{- if .Values.rbac.namespaced }}
-            {{- if semverCompare "<3.1.5-0" $version }}
+            {{- if semverCompare "<3.1.2-0" $version }}
           - "--providers.kubernetesingress.disableIngressClassLookup=true"
-              {{- if semverCompare ">=3.1.2-0" $version }}
-          - "--providers.kubernetesingress.disableClusterScopeResources=true"
-              {{- end }}
             {{- else }}
           - "--providers.kubernetesingress.disableClusterScopeResources=true"
             {{- end }}
@@ -514,18 +511,6 @@
           {{- with .Values.providers.kubernetesGateway }}
            {{- if .enabled }}
           - "--providers.kubernetesgateway"
-            {{- with .statusAddress }}
-             {{- with .ip }}
-          - "--providers.kubernetesgateway.statusaddress.ip={{ . }}"
-             {{- end }}
-             {{- with .hostname }}
-          - "--providers.kubernetesgateway.statusaddress.hostname={{ . }}"
-             {{- end }}
-             {{- with .service }}
-          - "--providers.kubernetesgateway.statusaddress.service.name={{ tpl .name $ }}"
-          - "--providers.kubernetesgateway.statusaddress.service.namespace={{ tpl .namespace $ }}"
-             {{- end }}
-            {{- end }}
             {{- if or .namespaces (and $.Values.rbac.enabled $.Values.rbac.namespaced) }}
           - "--providers.kubernetesgateway.namespaces={{ template "providers.kubernetesGateway.namespaces" $ }}"
             {{- end }}
@@ -553,6 +538,9 @@
           {{- range $entrypoint, $config := $.Values.ports }}
           {{- if $config }}
             {{- if $config.redirectTo }}
+             {{- if eq (typeOf $config.redirectTo) "string" }}
+               {{- fail "ERROR: Syntax of `ports.web.redirectTo` has changed to `ports.web.redirectTo.port`. Details in PR #934." }}
+             {{- end }}
              {{- $toPort := index $.Values.ports $config.redirectTo.port }}
           - "--entryPoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $toPort.exposedPort }}"
           - "--entryPoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
@@ -594,12 +582,6 @@
                   {{- end }}
                 {{- end }}
               {{- end }}
-            {{- end }}
-            {{- if $config.allowACMEByPass }}
-              {{- if (semverCompare "<3.1.3-0" $version) }}
-                {{- fail "ERROR: allowACMEByPass has been introduced with Traefik v3.1.3+" -}}
-              {{- end }}
-          - "--entryPoints.{{ $entrypoint }}.allowACMEByPass=true"
             {{- end }}
             {{- if $config.forwardedHeaders }}
               {{- if $config.forwardedHeaders.trustedIPs }}
@@ -650,17 +632,20 @@
             {{- if and .general.format (not (has .general.format (list "common" "json"))) }}
               {{- fail "ERROR: .Values.logs.general.format must be either common or json"  }}
             {{- end }}
-            {{- with .general.format }}
-          - "--log.format={{ . }}"
+            {{- if .general.format }}
+          - "--log.format={{ .general.format }}"
             {{- end }}
-            {{- with .general.filePath }}
-          - "--log.filePath={{ . }}"
+            {{- if .general.filePath }}
+          - "--log.filePath={{ .general.filePath }}"
             {{- end }}
             {{- if and (or (eq .general.format "common") (not .general.format)) (eq .general.noColor true) }}
           - "--log.noColor={{ .general.noColor }}"
             {{- end }}
-            {{- with .general.level }}
-          - "--log.level={{ . | upper }}"
+            {{- if and .general.level (not (has (.general.level | upper) (list "DEBUG" "PANIC" "FATAL" "ERROR" "WARN" "INFO"))) }}
+              {{- fail "ERROR: .Values.logs.level must be DEBUG, PANIC, FATAL, ERROR, WARN, and INFO"  }}
+            {{- end }}
+            {{- if .general.level }}
+          - "--log.level={{ .general.level | upper }}"
             {{- end }}
             {{- if .access.enabled }}
           - "--accesslog=true"
@@ -697,7 +682,17 @@
               {{- end }}
             {{- end }}
           {{- end }}
-          {{- include "traefik.yaml2CommandLineArgs" (dict "path" "certificatesresolvers" "content" $.Values.certificatesResolvers) | nindent 10 }}
+          {{- range $resolver, $config := $.Values.certResolvers }}
+          {{- range $option, $setting := $config }}
+          {{- if kindIs "map" $setting }}
+          {{- range $field, $value := $setting }}
+          - "--certificatesresolvers.{{ $resolver }}.acme.{{ $option }}.{{ $field }}={{ if kindIs "slice" $value }}{{ join "," $value }}{{ else }}{{ $value }}{{ end }}"
+          {{- end }}
+          {{- else }}
+          - "--certificatesresolvers.{{ $resolver }}.acme.{{ $option }}={{ $setting }}"
+          {{- end }}
+          {{- end }}
+          {{- end }}
           {{- with .Values.additionalArguments }}
           {{- range . }}
           - {{ . | quote }}
@@ -722,24 +717,24 @@
             {{- with .platformUrl }}
           - "--hub.platformUrl={{ . }}"
             {{- end -}}
-            {{- range $field, $value := .redis }}
+            {{- range $field, $value := .ratelimit.redis }}
              {{- if has $field (list "cluster" "database" "endpoints" "username" "password" "timeout") -}}
               {{- with $value }}
-          - "--hub.redis.{{ $field }}={{ $value }}"
+          - "--hub.ratelimit.redis.{{ $field }}={{ $value }}"
               {{- end }}
              {{- end }}
             {{- end }}
-            {{- range $field, $value := .redis.sentinel }}
+            {{- range $field, $value := .ratelimit.redis.sentinel }}
              {{- if has $field (list "masterset" "password" "username") -}}
               {{- with $value }}
-          - "--hub.redis.sentinel.{{ $field }}={{ $value }}"
+          - "--hub.ratelimit.redis.sentinel.{{ $field }}={{ $value }}"
               {{- end }}
              {{- end }}
             {{- end }}
-            {{- range $field, $value := .redis.tls }}
+            {{- range $field, $value := .ratelimit.redis.tls }}
              {{- if has $field (list "ca" "cert" "insecureSkipVerify" "key") -}}
               {{- with $value }}
-          - "--hub.redis.tls.{{ $field }}={{ $value }}"
+          - "--hub.ratelimit.redis.tls.{{ $field }}={{ $value }}"
               {{- end }}
              {{- end }}
             {{- end }}
@@ -749,14 +744,6 @@
           {{- end }}
          {{- end }}
         env:
-          - name: POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
           {{- if ($.Values.resources.limits).cpu }}
           - name: GOMAXPROCS
             valueFrom:
@@ -812,7 +799,7 @@
         {{- if .Values.deployment.additionalVolumes }}
           {{- toYaml .Values.deployment.additionalVolumes | nindent 8 }}
         {{- end }}
-        {{- if and (gt (len .Values.experimental.plugins) 0) (ne (include "traefik.hasPluginsVolume" .Values.deployment.additionalVolumes) "true") }}
+        {{- if gt (len .Values.experimental.plugins) 0 }}
         - name: plugins
           emptyDir: {}
         {{- end }}

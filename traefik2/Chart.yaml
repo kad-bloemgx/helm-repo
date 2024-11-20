@@ -1,7 +1,12 @@
 apiVersion: v2
+
 name: traefik2
+appVersion: "1.16.0"
 description: A Traefik based Kubernetes ingress controller
 type: application
-version: 33.0.1
-appVersion: v3.2.0
+version: 1.0.2
 
+dependencies:
+  - name: traefik
+    version: 31.0.0
+    repository: oci://ghcr.io/traefik/helm

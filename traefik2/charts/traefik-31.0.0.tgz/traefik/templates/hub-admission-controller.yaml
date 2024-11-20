@@ -18,6 +18,37 @@ data:
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
+  name: hub-edge-ingress
+  labels:
+  {{- include "traefik.labels" . | nindent 4 }}
+webhooks:
+  - name: admission.traefik.svc
+    clientConfig:
+      service:
+        name: admission
+        namespace: {{ template "traefik.namespace" . }}
+        path: /edge-ingress
+      caBundle: {{ $cert.Cert }}
+    sideEffects: None
+    admissionReviewVersions:
+      - v1
+    rules:
+      - operations:
+          - CREATE
+          - UPDATE
+          - DELETE
+        apiGroups:
+          - hub.traefik.io
+        apiVersions:
+          - v1alpha1
+        resources:
+          - edgeingresses
+        scope: Namespaced
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
   name: hub-acp
   labels:
   {{- include "traefik.labels" . | nindent 4 }}
@@ -73,6 +104,27 @@ webhooks:
           - v1alpha1
         resources:
           - apiportals
+  - name: hub-agent.traefik.gateway
+    clientConfig:
+      service:
+        name: admission
+        namespace: {{ template "traefik.namespace" . }}
+        path: /api-gateway
+      caBundle: {{ $cert.Cert }}
+    sideEffects: None
+    admissionReviewVersions:
+      - v1
+    rules:
+      - operations:
+          - CREATE
+          - UPDATE
+          - DELETE
+        apiGroups:
+          - hub.traefik.io
+        apiVersions:
+          - v1alpha1
+        resources:
+          - apigateways
   - name: hub-agent.traefik.api
     clientConfig:
       service:
@@ -94,6 +146,27 @@ webhooks:
           - v1alpha1
         resources:
           - apis
+  - name: hub-agent.traefik.collection
+    clientConfig:
+      service:
+        name: admission
+        namespace: {{ template "traefik.namespace" . }}
+        path: /api-collection
+      caBundle: {{ $cert.Cert }}
+    sideEffects: None
+    admissionReviewVersions:
+      - v1
+    rules:
+      - operations:
+          - CREATE
+          - UPDATE
+          - DELETE
+        apiGroups:
+          - hub.traefik.io
+        apiVersions:
+          - v1alpha1
+        resources:
+          - apicollections
   - name: hub-agent.traefik.access
     clientConfig:
       service:
@@ -115,12 +188,12 @@ webhooks:
           - v1alpha1
         resources:
           - apiaccesses
-  - name: hub-agent.traefik.plan
+  - name: hub-agent.traefik.rate-limit
     clientConfig:
       service:
         name: admission
         namespace: {{ template "traefik.namespace" . }}
-        path: /api-plan
+        path: /api-rate-limit
       caBundle: {{ $cert.Cert }}
     sideEffects: None
     admissionReviewVersions:
@@ -135,28 +208,7 @@ webhooks:
         apiVersions:
           - v1alpha1
         resources:
-          - apiplans
-  - name: hub-agent.traefik.bundle
-    clientConfig:
-      service:
-        name: admission
-        namespace: {{ template "traefik.namespace" . }}
-        path: /api-bundle
-      caBundle: {{ $cert.Cert }}
-    sideEffects: None
-    admissionReviewVersions:
-      - v1
-    rules:
-      - operations:
-          - CREATE
-          - UPDATE
-          - DELETE
-        apiGroups:
-          - hub.traefik.io
-        apiVersions:
-          - v1alpha1
-        resources:
-          - apibundles
+          - apiratelimits
   - name: hub-agent.traefik.version
     clientConfig:
       service:

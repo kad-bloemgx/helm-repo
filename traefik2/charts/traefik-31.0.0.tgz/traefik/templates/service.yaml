@@ -62,8 +62,6 @@ spec:
 {{- end }}
 
 {{- if and $exposedPorts (and $udpPorts (not $service.single)) }}
- {{- $ports := include "traefik.service-ports" (dict "ports" $udpPorts "serviceName" $name) }}
- {{- if not (empty $ports) }}
 ---
 apiVersion: v1
 kind: Service
@@ -78,8 +76,7 @@ metadata:
 spec:
   {{- template "traefik.service-spec" (dict "root" $ "service" $service) }}
   ports:
-  {{- $ports }}
- {{- end }}
+  {{- template "traefik.service-ports" (dict "ports" $udpPorts "serviceName" $name) }}
 {{- end }}
 
 {{- end -}}
