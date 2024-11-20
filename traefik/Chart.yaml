@@ -4,7 +4,7 @@ name: traefik
 appVersion: "1.16.0"
 description: A Helm chart for Kubernetes Traefik
 
-version: 1.0.0
+version: 1.0.1
 
 dependencies:
   - name: traefik
