@@ -3,7 +3,7 @@ entries:
   homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.746414132+01:00"
+    created: "2024-11-20T18:42:15.171584672+01:00"
     description: A Helm chart for Kubernetes
     digest: 4d9c510d6b6b350f9a904b429d29f4c823a8c2ee7580c19dee659c1bf15168c7
     name: homeassistant
@@ -13,7 +13,7 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.74877586+01:00"
+    created: "2024-11-20T18:42:15.173320387+01:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
@@ -27,7 +27,7 @@ entries:
   raspberry-homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.749468943+01:00"
+    created: "2024-11-20T18:42:15.173919968+01:00"
     description: A Helm chart for Kubernetes
     digest: 3b5459f5de6a01a7a51b56cf70893ea0e92d990431b8eef60d8e9accf373d3f7
     name: raspberry-homeassistant
@@ -37,7 +37,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.749167427+01:00"
+    created: "2024-11-20T18:42:15.17367624+01:00"
     description: A Helm chart for Kubernetes
     digest: 07a8f132cc24479e8eb150d41e8f81a73dd6dd4ca0d0f92eadfb7f33476bc573
     name: raspberry-homeassistant
@@ -48,7 +48,7 @@ entries:
   raspberry-httpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.749761437+01:00"
+    created: "2024-11-20T18:42:15.174162439+01:00"
     description: A Helm chart for Kubernetes
     digest: 8c24184dd516646242d91be33ffe219a0ed96e7f27043bd6a95c1c6322eee4ac
     name: raspberry-httpd
@@ -59,7 +59,7 @@ entries:
   raspberry-traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.750387841+01:00"
+    created: "2024-11-20T18:42:15.174521277+01:00"
     description: A Helm chart for Kubernetes
     digest: ef9b87804ad8e53268527ca8137cd58f889088f12816f2c29a3c7b5c3dfe35ea
     name: raspberry-traefik
@@ -69,7 +69,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.750000316+01:00"
+    created: "2024-11-20T18:42:15.174342924+01:00"
     description: A Helm chart for Kubernetes
     digest: ebb21f0d8ff7f69249c6b0b81a27f7414cf6b4cc97fab53aab1aab33ed337558
     name: raspberry-traefik
@@ -80,7 +80,7 @@ entries:
   raspberry-whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.750585638+01:00"
+    created: "2024-11-20T18:42:15.174667981+01:00"
     description: A Helm chart for Kubernetes
     digest: 14e518f9ac9bc558a700197b0b1593ec64f157648a36d935609b312332e8d66b
     name: raspberry-whoami
@@ -89,9 +89,53 @@ entries:
     - raspberry-whoami/raspberry-whoami-0.1.2.tgz
     version: 0.1.2
   traefik:
+  - annotations:
+      artifacthub.io/changes: "- \"fix: \U0001F41B http3 with internal service\"\n-
+        \"fix: use correct children indentation for logs.access.filters\"\n- \"fix(schema):
+        :bug: targetPort can also be a string\"\n- \"fix(certificateResolvers)!: :boom:
+        :bug: use same syntax in Chart and in Traefik\"\n- \"fix(Traefik)!: :boom:
+        set 8080 as default port for `traefik` entrypoint\"\n- \"fix(Traefik Hub):
+        RBAC for distributedAcme\"\n- \"fix(Kubernetes Ingress)!: :boom: :sparkles:
+        enable publishedService by default\"\n- \"fix(Gateway API): :bug: add missing
+        required RBAC for v3.2 with experimental Channel\"\n- \"fix(Env Variables)!:
+        allow extending env without overwrite\"\n- \"feat(deps): update traefik docker
+        tag to v3.2.0\"\n- \"feat(deps): update traefik docker tag to v3.1.6\"\n-
+        \"feat(Traefik): ✨ support Gateway API statusAddress\"\n- \"feat(Traefik Proxy):
+        CRDs for v3.2+\"\n- \"feat(Gateway API): :sparkles: standard install CRD v1.2.0\"\n-
+        \"feat(Gateway API): :sparkles: add infrastructure in the values\"\n- \"chore:
+        allow TRACE log level\"\n- \"chore(release): \U0001F680 publish v33.0.0\"\n-
+        \"Update topology spread constraints comments\"\n"
+    apiVersion: v2
+    appVersion: v3.2.0
+    created: "2024-11-20T18:42:15.192477267+01:00"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 098bead90abe7bd2db0886cc40e4695f5b63026e27dde3959c7fa07eb22398c7
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: charlie.haley@traefik.io
+      name: charlie-haley
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - traefik2/traefik-33.0.0.tgz
+    version: 33.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.764957463+01:00"
+    created: "2024-11-20T18:42:15.18304598+01:00"
     dependencies:
     - name: traefik
       repository: oci://ghcr.io/traefik/helm
@@ -105,7 +149,7 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-12T21:35:59.765235693+01:00"
+    created: "2024-11-20T18:42:15.192742239+01:00"
     description: A Helm chart for Kubernetes
     digest: b30e14e843b8672f6e7e5f5c1e98a5c315d6527cbcb941b040425fc6ac5659ed
     name: whoami
@@ -113,4 +157,4 @@ entries:
     urls:
     - whoami/whoami-0.2.1.tgz
     version: 0.2.1
-generated: "2024-11-12T21:35:59.745939064+01:00"
+generated: "2024-11-20T18:42:15.170458511+01:00"
