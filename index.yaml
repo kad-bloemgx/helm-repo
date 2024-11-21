@@ -3,18 +3,18 @@ entries:
   demo-oauth:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.003419606+01:00"
+    created: "2024-11-21T14:54:41.3452499+01:00"
     description: A Helm chart for Kubernetes
-    digest: 0a6e77583d3c6357fa6348ce3de84ed8f1915d67309638f3474059aaf750becc
+    digest: 675bca8dc9e0034aa931324634bd61067c223a2a09b7face6e15aa07893045c7
     name: demo-oauth
     type: application
     urls:
-    - demo-oauth/demo-oauth-0.1.0.tgz
-    version: 0.1.0
+    - demo-oauth/demo-oauth-0.1.1.tgz
+    version: 0.1.1
   homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.003710057+01:00"
+    created: "2024-11-21T14:54:41.350379141+01:00"
     description: A Helm chart for Kubernetes
     digest: 4d9c510d6b6b350f9a904b429d29f4c823a8c2ee7580c19dee659c1bf15168c7
     name: homeassistant
@@ -24,7 +24,7 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.006153332+01:00"
+    created: "2024-11-21T14:54:41.35494448+01:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
@@ -38,7 +38,7 @@ entries:
   raspberry-homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.006804301+01:00"
+    created: "2024-11-21T14:54:41.35689934+01:00"
     description: A Helm chart for Kubernetes
     digest: 3b5459f5de6a01a7a51b56cf70893ea0e92d990431b8eef60d8e9accf373d3f7
     name: raspberry-homeassistant
@@ -48,7 +48,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.006495142+01:00"
+    created: "2024-11-21T14:54:41.356175522+01:00"
     description: A Helm chart for Kubernetes
     digest: 07a8f132cc24479e8eb150d41e8f81a73dd6dd4ca0d0f92eadfb7f33476bc573
     name: raspberry-homeassistant
@@ -59,7 +59,7 @@ entries:
   raspberry-httpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.007152703+01:00"
+    created: "2024-11-21T14:54:41.357949939+01:00"
     description: A Helm chart for Kubernetes
     digest: 8c24184dd516646242d91be33ffe219a0ed96e7f27043bd6a95c1c6322eee4ac
     name: raspberry-httpd
@@ -70,7 +70,7 @@ entries:
   raspberry-traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.007713964+01:00"
+    created: "2024-11-21T14:54:41.359276682+01:00"
     description: A Helm chart for Kubernetes
     digest: ef9b87804ad8e53268527ca8137cd58f889088f12816f2c29a3c7b5c3dfe35ea
     name: raspberry-traefik
@@ -80,7 +80,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.007415347+01:00"
+    created: "2024-11-21T14:54:41.358545517+01:00"
     description: A Helm chart for Kubernetes
     digest: ebb21f0d8ff7f69249c6b0b81a27f7414cf6b4cc97fab53aab1aab33ed337558
     name: raspberry-traefik
@@ -91,7 +91,7 @@ entries:
   raspberry-whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.007907027+01:00"
+    created: "2024-11-21T14:54:41.360010526+01:00"
     description: A Helm chart for Kubernetes
     digest: 14e518f9ac9bc558a700197b0b1593ec64f157648a36d935609b312332e8d66b
     name: raspberry-whoami
@@ -102,7 +102,7 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.020540881+01:00"
+    created: "2024-11-21T14:54:41.376728427+01:00"
     dependencies:
     - name: traefik
       repository: oci://ghcr.io/traefik/helm
@@ -116,7 +116,7 @@ entries:
   traefik2:
   - apiVersion: v2
     appVersion: v3.2.5
-    created: "2024-11-20T21:33:44.028302198+01:00"
+    created: "2024-11-21T14:54:41.387462896+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: e3e1c24a27432ea7827daefbcee741eef1daa2738011c9a9b60ee4f767daa167
     name: traefik2
@@ -127,7 +127,7 @@ entries:
   traefik3:
   - apiVersion: v2
     appVersion: v3.2.0
-    created: "2024-11-20T21:33:44.039128019+01:00"
+    created: "2024-11-21T14:54:41.405708681+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: 0c03237a083eeb6b3490e389e4e261b1b1f9b1b61ce19ca9e5298ed8c268074c
     kubeVersion: '>=1.22.0-0'
@@ -139,7 +139,7 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-20T21:33:44.039335459+01:00"
+    created: "2024-11-21T14:54:41.406492558+01:00"
     description: A Helm chart for Kubernetes
     digest: b30e14e843b8672f6e7e5f5c1e98a5c315d6527cbcb941b040425fc6ac5659ed
     name: whoami
@@ -147,4 +147,4 @@ entries:
     urls:
     - whoami/whoami-0.2.1.tgz
     version: 0.2.1
-generated: "2024-11-20T21:33:44.002960647+01:00"
+generated: "2024-11-21T14:54:41.344924715+01:00"
