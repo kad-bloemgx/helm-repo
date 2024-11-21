@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: default
+  namespace: keycloak
   name: demo-oauth
   labels:
     app: demo-oauth

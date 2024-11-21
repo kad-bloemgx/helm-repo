@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: demo-oauth
-
+  namespace: keycloak
 spec:
   selector:
     app: demo-oauth
