@@ -2,13 +2,32 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: ingressroute-keycloak
-  namespace: default
+  namespace: keycloak
 spec:
   entryPoints:
     - web
+
   routes:
-    - match: Host(`keycloak.local`)
-      kind: Rule
+    - kind: Rule
+      match: Host("keycloak.dhub.test.cloud.kadaster.nl")
+      priority: 10
       services:
-        - name: my-keycloak
+        - kind: Service
+          name: my-keycloak
+          namespace: keycloak
+          passHostHeader: true
           port: 80
+          scheme: http
+      middlewares:
+        - name: keycloak-forwarded-headers
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: keycloak-forwarded-headers
+  namespace: keycloak
+spec:
+  headers:
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
+      X-Forwarded-Host: "keycloak.dhub.test.cloud.kadaster.nl"
