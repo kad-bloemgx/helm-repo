@@ -3,7 +3,7 @@ entries:
   demo-oauth:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.3452499+01:00"
+    created: "2024-11-21T17:34:39.682254301+01:00"
     description: A Helm chart for Kubernetes
     digest: 675bca8dc9e0034aa931324634bd61067c223a2a09b7face6e15aa07893045c7
     name: demo-oauth
@@ -14,17 +14,57 @@ entries:
   homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.350379141+01:00"
+    created: "2024-11-21T17:34:39.682446703+01:00"
     description: A Helm chart for Kubernetes
     digest: 4d9c510d6b6b350f9a904b429d29f4c823a8c2ee7580c19dee659c1bf15168c7
     name: homeassistant
     urls:
     - homeassistant/homeassistant-1.0.0.tgz
     version: 1.0.0
+  keycloak:
+  - annotations:
+      category: DeveloperTools
+      images: |
+        - name: keycloak
+          image: docker.io/bitnami/keycloak:26.0.5-debian-12-r2
+        - name: keycloak-config-cli
+          image: docker.io/bitnami/keycloak-config-cli:6.1.6-debian-12-r6
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 26.0.5
+    created: "2024-11-21T17:34:39.699520071+01:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Keycloak is a high performance Java-based identity and access management
+      solution. It lets developers add an authentication layer to their applications
+      with minimum effort.
+    digest: 1f3330ee14414346a02d47ec5ea852cd523b43ab6c4fb8e5cb06b0f6377a962f
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/keycloak/img/keycloak-stack-220x234.png
+    keywords:
+    - keycloak
+    - access-management
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: keycloak
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/keycloak
+    urls:
+    - keycloak/keycloak-24.2.1.tgz
+    version: 24.2.1
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.35494448+01:00"
+    created: "2024-11-21T17:34:39.704447362+01:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
@@ -38,7 +78,7 @@ entries:
   raspberry-homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.35689934+01:00"
+    created: "2024-11-21T17:34:39.705268962+01:00"
     description: A Helm chart for Kubernetes
     digest: 3b5459f5de6a01a7a51b56cf70893ea0e92d990431b8eef60d8e9accf373d3f7
     name: raspberry-homeassistant
@@ -48,7 +88,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.356175522+01:00"
+    created: "2024-11-21T17:34:39.704843631+01:00"
     description: A Helm chart for Kubernetes
     digest: 07a8f132cc24479e8eb150d41e8f81a73dd6dd4ca0d0f92eadfb7f33476bc573
     name: raspberry-homeassistant
@@ -59,7 +99,7 @@ entries:
   raspberry-httpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.357949939+01:00"
+    created: "2024-11-21T17:34:39.705680552+01:00"
     description: A Helm chart for Kubernetes
     digest: 8c24184dd516646242d91be33ffe219a0ed96e7f27043bd6a95c1c6322eee4ac
     name: raspberry-httpd
@@ -70,7 +110,7 @@ entries:
   raspberry-traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.359276682+01:00"
+    created: "2024-11-21T17:34:39.706353321+01:00"
     description: A Helm chart for Kubernetes
     digest: ef9b87804ad8e53268527ca8137cd58f889088f12816f2c29a3c7b5c3dfe35ea
     name: raspberry-traefik
@@ -80,7 +120,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.358545517+01:00"
+    created: "2024-11-21T17:34:39.70588622+01:00"
     description: A Helm chart for Kubernetes
     digest: ebb21f0d8ff7f69249c6b0b81a27f7414cf6b4cc97fab53aab1aab33ed337558
     name: raspberry-traefik
@@ -91,7 +131,7 @@ entries:
   raspberry-whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.360010526+01:00"
+    created: "2024-11-21T17:34:39.706695419+01:00"
     description: A Helm chart for Kubernetes
     digest: 14e518f9ac9bc558a700197b0b1593ec64f157648a36d935609b312332e8d66b
     name: raspberry-whoami
@@ -102,7 +142,7 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.376728427+01:00"
+    created: "2024-11-21T17:34:39.737662966+01:00"
     dependencies:
     - name: traefik
       repository: oci://ghcr.io/traefik/helm
@@ -116,7 +156,7 @@ entries:
   traefik2:
   - apiVersion: v2
     appVersion: v3.2.5
-    created: "2024-11-21T14:54:41.387462896+01:00"
+    created: "2024-11-21T17:34:39.753448602+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: e3e1c24a27432ea7827daefbcee741eef1daa2738011c9a9b60ee4f767daa167
     name: traefik2
@@ -127,7 +167,7 @@ entries:
   traefik3:
   - apiVersion: v2
     appVersion: v3.2.0
-    created: "2024-11-21T14:54:41.405708681+01:00"
+    created: "2024-11-21T17:34:39.769917441+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: 0c03237a083eeb6b3490e389e4e261b1b1f9b1b61ce19ca9e5298ed8c268074c
     kubeVersion: '>=1.22.0-0'
@@ -139,7 +179,7 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-21T14:54:41.406492558+01:00"
+    created: "2024-11-21T17:34:39.771200985+01:00"
     description: A Helm chart for Kubernetes
     digest: b30e14e843b8672f6e7e5f5c1e98a5c315d6527cbcb941b040425fc6ac5659ed
     name: whoami
@@ -147,4 +187,4 @@ entries:
     urls:
     - whoami/whoami-0.2.1.tgz
     version: 0.2.1
-generated: "2024-11-21T14:54:41.344924715+01:00"
+generated: "2024-11-21T17:34:39.681896623+01:00"
