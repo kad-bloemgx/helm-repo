@@ -44,7 +44,7 @@ nameOverride: ""
 fullnameOverride: ""
 ## @param namespaceOverride String to fully override common.names.namespace
 ##
-namespaceOverride: "keycloak"
+namespaceOverride: ""
 ## @param commonLabels Labels to add to all deployed objects
 ##
 commonLabels: {}
@@ -58,7 +58,7 @@ commonAnnotations: {}
 ## @param dnsPolicy DNS Policy for pod
 ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 ## E.g.
-## dnsPolicy: ClusterFirst
+## dnsPolicy: ClusterFirstfnames
 dnsPolicy: ""
 ## @param dnsConfig DNS Configuration pod
 ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
