@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`demo-oauth.dhub.test.cloud.kadaster.nl/`)
+    - match: Host(`demo-oauth.dhub.test.cloud.kadaster.nl`)
       kind: Rule
       services:
         - name: demo-oauth
