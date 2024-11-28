@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-oauth2
+  namespace: keycloak
+spec:
+  selector:
+    app: demo-oauth2
+  ports:
+    - protocol: TCP
+      port: 8090

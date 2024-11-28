@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: keycloak
+  name: demo-oauth2
+  labels:
+    app: demo-oauth2
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-oauth2
+  template:
+    metadata:
+      labels:
+        app: demo-oauth2
+    spec:
+      containers:
+        - name: demo-oauth2
+          image: guru0468/demo-oauth2
+          ports:
+            - name: web
+              containerPort: 8090
