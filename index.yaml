@@ -1,9 +1,20 @@
 apiVersion: v1
 entries:
+  demo:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-11-29T12:43:22.712521405+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 2f7c095dba712dfdd9de93be39a0a5a5aa309aad7208caa4240234332b09afa2
+    name: demo
+    type: application
+    urls:
+    - demo/demo-0.1.3.tgz
+    version: 0.1.3
   demo-oauth:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.950254974+01:00"
+    created: "2024-11-29T12:43:22.718527324+01:00"
     description: A Helm chart for Kubernetes
     digest: 03284a5333947b2d4b62155bb81c103e0bf0482c4e1a52a7c96b3e25e73d9528
     name: demo-oauth
@@ -14,7 +25,7 @@ entries:
   homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.950813839+01:00"
+    created: "2024-11-29T12:43:22.719477831+01:00"
     description: A Helm chart for Kubernetes
     digest: 4d9c510d6b6b350f9a904b429d29f4c823a8c2ee7580c19dee659c1bf15168c7
     name: homeassistant
@@ -32,7 +43,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 26.0.5
-    created: "2024-11-22T01:07:45.962173773+01:00"
+    created: "2024-11-29T12:43:22.731022729+01:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -64,7 +75,7 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.963278025+01:00"
+    created: "2024-11-29T12:43:22.732803941+01:00"
     dependencies:
     - name: pgadmin4
       repository: https://helm.runix.net
@@ -78,7 +89,7 @@ entries:
   raspberry-homeassistant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.963747499+01:00"
+    created: "2024-11-29T12:43:22.734507346+01:00"
     description: A Helm chart for Kubernetes
     digest: 3b5459f5de6a01a7a51b56cf70893ea0e92d990431b8eef60d8e9accf373d3f7
     name: raspberry-homeassistant
@@ -88,7 +99,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.963505796+01:00"
+    created: "2024-11-29T12:43:22.733676352+01:00"
     description: A Helm chart for Kubernetes
     digest: 07a8f132cc24479e8eb150d41e8f81a73dd6dd4ca0d0f92eadfb7f33476bc573
     name: raspberry-homeassistant
@@ -99,7 +110,7 @@ entries:
   raspberry-httpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.963995302+01:00"
+    created: "2024-11-29T12:43:22.735501993+01:00"
     description: A Helm chart for Kubernetes
     digest: 8c24184dd516646242d91be33ffe219a0ed96e7f27043bd6a95c1c6322eee4ac
     name: raspberry-httpd
@@ -110,7 +121,7 @@ entries:
   raspberry-traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.964391103+01:00"
+    created: "2024-11-29T12:43:22.737121846+01:00"
     description: A Helm chart for Kubernetes
     digest: ef9b87804ad8e53268527ca8137cd58f889088f12816f2c29a3c7b5c3dfe35ea
     name: raspberry-traefik
@@ -120,7 +131,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.964171942+01:00"
+    created: "2024-11-29T12:43:22.736356712+01:00"
     description: A Helm chart for Kubernetes
     digest: ebb21f0d8ff7f69249c6b0b81a27f7414cf6b4cc97fab53aab1aab33ed337558
     name: raspberry-traefik
@@ -131,7 +142,7 @@ entries:
   raspberry-whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.964548018+01:00"
+    created: "2024-11-29T12:43:22.737793509+01:00"
     description: A Helm chart for Kubernetes
     digest: 14e518f9ac9bc558a700197b0b1593ec64f157648a36d935609b312332e8d66b
     name: raspberry-whoami
@@ -142,7 +153,7 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.977602654+01:00"
+    created: "2024-11-29T12:43:22.752058805+01:00"
     dependencies:
     - name: traefik
       repository: oci://ghcr.io/traefik/helm
@@ -156,7 +167,7 @@ entries:
   traefik2:
   - apiVersion: v2
     appVersion: v3.2.5
-    created: "2024-11-22T01:07:45.984232509+01:00"
+    created: "2024-11-29T12:43:22.761188427+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: e3e1c24a27432ea7827daefbcee741eef1daa2738011c9a9b60ee4f767daa167
     name: traefik2
@@ -167,7 +178,7 @@ entries:
   traefik3:
   - apiVersion: v2
     appVersion: v3.2.0
-    created: "2024-11-22T01:07:45.995938738+01:00"
+    created: "2024-11-29T12:43:22.773465803+01:00"
     description: A Traefik based Kubernetes ingress controller
     digest: 0c03237a083eeb6b3490e389e4e261b1b1f9b1b61ce19ca9e5298ed8c268074c
     kubeVersion: '>=1.22.0-0'
@@ -179,7 +190,7 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-22T01:07:45.996125062+01:00"
+    created: "2024-11-29T12:43:22.774266543+01:00"
     description: A Helm chart for Kubernetes
     digest: b30e14e843b8672f6e7e5f5c1e98a5c315d6527cbcb941b040425fc6ac5659ed
     name: whoami
@@ -187,4 +198,4 @@ entries:
     urls:
     - whoami/whoami-0.2.1.tgz
     version: 0.2.1
-generated: "2024-11-22T01:07:45.949501656+01:00"
+generated: "2024-11-29T12:43:22.712251227+01:00"

@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: keycloak
+  name: demo
+  labels:
+    app: demo
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - name: demo
+          image: guru0468/demo
+          ports:
+            - name: web
+              containerPort: 8090

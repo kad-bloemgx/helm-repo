@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute-demo
+  namespace: keycloak
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`demo.dhub.test.cloud.kadaster.nl`)
+      kind: Rule
+      services:
+        - name: demo
+          port: 8090
