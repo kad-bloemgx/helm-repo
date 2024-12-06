@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: local-path-pvc-test
+  name: local-path-pvc
   namespace: {{ .Values.nameSpace }}
 spec:
   accessModes:

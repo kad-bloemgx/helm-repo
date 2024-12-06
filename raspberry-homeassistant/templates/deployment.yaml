@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: pv-storage-ha
           persistentVolumeClaim:
-            claimName: local-path-pvc-test
+            claimName: local-path-pvc
