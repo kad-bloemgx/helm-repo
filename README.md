@@ -33,3 +33,4 @@
 | repository     | homeassistant/home-assistant |
 | container.port | 8123                         |
 
+<img title="a title" alt="Alt text" src="/kwd-lvbag.drawio.svg">
